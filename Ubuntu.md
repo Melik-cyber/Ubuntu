@@ -1,110 +1,161 @@
-apt-get update
-This command will update your package lists. Remember, this will not update software. Run Command #2 or #3 followed by this command. Note that apt-get require root permission. You should add sudo before apt-get.
-apt-get upgrade
-This command will download and update installed software. But it will not install or remove extra packages.
-apt-get dist-upgrade
-To upgrade all the packages on your system, and, if needed for a package upgrade, installing extra packages or removing packages
-apt-get install <package-name>
-You may download and install new packages or software named <package-name> using above commands. E.g. run sudo apt-get install gimp in your terminal to install Gimp image manipulation software. Notice the sudo before apt-get.
-apt-get -f install
-Sometimes while installing a software it fails. This might happen due to failure in downloading software itself or dependency. To fix broken installation run the above command.
-apt-get remove <package-name>
-If you don’t like a software you can get rid of that by simply running above command. Don’t forget to change <package-name> with real one. This will uninstall the software but not the dependent packages.
-apt-get purge <package-name>
-To completely remove a software and it’s dependent packages run the apt-get purge command.
-apt-get autoclean
-This command will remove all Debian (.deb) files that are no longer installed. You may find this files in /var/cache/apt/archives
-apt-get clean
-This will empty whole cache files. A lot of space could be freed if you frequently install and uninstall softwares.
-apt-get automove
-It will remove old dependent files and footprints installed by previous applications.
-dpkg –configure -a
-configure installed package
-sudo nano /etc/apt/sources.list
-display repository source list in nano editor
-sudo apt-get download <package-name>
-download but not install package
-Ctrl + c
-It kills process with a signal SIGINT. Don’t confuse with Ctrl+C in Windows or Ctrl+Z. Ctrl+Z is used to suspend a process while In Windows Ctrl+C is copy command.
-Ctrl + Shift + c
-This is a copy command.
-Ctrl + Shift + v
-This is paste command like Ctrl+v in Windows.
-nano <filename>
-nano is command line text editor. In terminal by running the above command you could edit file named <filename>.
-sudo nano <filename>
-This is same command as we mentioned earlier except it will edit file with privilege of super user.
-gedit <filename>
-gedit is GUI text editor like notepad in Windows. It will start editing file named <filename> in gedit window.
-sudo gedit <filename>
-This is again same as above except it will edit files with SU privilege. It is worth to mention this command because many beginners starts editing a file and later they realize they forget to get proper privilege.
-sudo poweroff
-This will shut down the system as the name suggest.
-sudo halt
-Halt is supposed to be same as poweroff by many beginners. But it’s not unless you explicitly mention to poweroff using either -p or–poweroff.So if you want to poweroff your system then use sudo halt –p or sudo halt –poweroff.
-sudo reboot
-This will simply reboot your system.
-Ctrl + Alt + t
-Open Ubuntu Terminal Window, the command line interface. This is a preinstalled software comes with every standard Ubuntu.
-pwd
-print work directory: e.g. if you are at your home directory then it will print something like /home/<username>
-ls
-list directory: This command will list the items of a directory. If you don’t specify a directory then it will list work directory, the place where you currently are.
-cd
-change directory. It will change your work directly as you specify. You will have to specify a directory.g. cd /home will change your work directory to /home regardless where you are.
-cd ..
-change directory one level up.
-cd ~
-change to home directory. Suppose if your username is tom then cd ~ will change your work directory to /home/tom.
-cp
-Copy Command. It will copy a file or directory. It is similar to Copy-Paste in GUI.
-mv
-Move or rename files. It is like renaming a file or cut-paste in GUI.
-rm
-remove file or directory.
-rmdir
-remove empty directory. This will not remove content of the directory but it will delete a directory if it is empty.
-mkdir
-make directory. It will create a new directory. We will need to specify a name.
-man
-Ubuntu will help you instantly and has a built in manual. Simply apend any command with man or type executes man. e.g. man mkdir
-sudo
-sudo basically allow a standard user to execute a command with root or superuser privilege.
-adduser <username>
-As the name suggest it will add another user. You may also use useradd, which is a little bit different from the adduser.
-passwd <username>
-This command will change password for an user named <username>. Root privilege will be require while change other user’s password.
-time
-time command in Ubuntu will not actually show you current date or time. It will actually run and show the summary system resources usages.Tip: run time gedit in terminal. You will see a new gedit window. After a few seconds close the window and see what appears in the terminal. It will be something like:real     112s
-user     0m0.560s
-sys        0m0.050sCheck this wikipedia article.
-date
-This command will show you the current date and time of your system (including timezone).
-cal
-This will show calender in the terminal.
-wget
-You can use wget command to download things from Internet or other connected networks.
-ping
-You may ping websites and other devices with ping command. This is a part of iputils package. Pinging is something like saying hello to someone and that person reply you back. Which means you are connected and the remote person (or system) is replying you back. Try
-ping -c 4 ubuntubeginner.com
-When you execute this command your system will say ubuntubeginner.com‘s server ‘hi’ 4 times. -c 4 stands for 4 times.
+1. Navigation (↑)
+pwd Print name of current/working directory.
+ls path List directory contents (definition of path and wildcards in computing).
+cd path Change directory.
+2. Help (↑)
+man command Display summary information of a command.
+command --help Display short summary information of a command.
+command -h Another way to display short summary information of a command.
+info command Display detailed manual of a command. Only works for some commands.
+3. File manipulation (↑)
+cp source_path destination_path Copy a file.
+cp -r source_path destination_path Copy a directory.
+mv source_path destination_path Move and/or rename files and directories.
+mkdir path Make empty directories.
+rm path Remove a file.
+rm -r path Remove a directory.
+ln source_path destination_path Create a hard link of a file.
+ln -s source_path destination_path Create a symbolic link of a file.
+nano path_text_file Edit a text file. Nano is a simple text editor.
+4. File visualization (↑)
+echo 'text' Display a line of text.
+echo $PATH Show the content of the variable PATH.
+cat Concatenate files and print on the standard output.
+head path_file Print the first 10 lines of a text file.
+tail path_file Print the last 10 lines of a text file.
+more path_file Visualize the contents of a text file.
+less path_file Visualize the contents of a text file with more features.
+grep pattern path_file Print lines of a text file that match a pattern.
+locate pattern Search and print files and folders that match a pattern: , sudo updatedb.
+5. File information (↑)
+file path Print file type.
+stat path Print detailed information about a file or directory.
+wc path_file Print newline, word, and byte counts of a text file.
+ldd path_executable Print shared library dependencies of a dynamic executable.
+diff --color path_file_A path_file_B Compare two text files line by line.
+6. Administration (↑)
+sudo command Execute a command as the superuser (enable sudo on Debian).
+su username Change user ID.
+su or su root Become superuser.
+7. Execution (↑)
+command1 && command2 && commandN Execute multiple commands (AND).
+command & Execute a command in the background.
+./executable Run an executable in the current directory that is not in your PATH.
+bash script.sh Run a Bash script (executable with the header #!/bin/bash).
+8. Redirection (↑)
+command_A | command_B Redirect standard output of command A to standard input of command B.
+command > file Redirect standard output of a command to a new file.
+command 2> file Redirect standard error of a command to a new file.
+command &> file Redirect standard or error output of a command to a new file.
+command >> file Append standard output of a command to a file.
+command 2>> file Append standard error of a command to a file.
+command &&> file Append standard or error output of a command to a file.
+9. Bash shortcuts (↑)
+Tab Autocomplete files, folders, commands, packages, etc.
+Tab + Tab List all available files, folders, commands, packages, etc.
+↑ Go to previous command.
+↓ Go to next command.
+Ctrl + R Search through previously used commands.
+Ctrl + C Terminate the current process (SIGINT).
+Ctrl + Z Suspend the current process (SIGTSTP).
+10. APT (↑)
+sudo apt-get install ./package.deb Install a local .deb package.
+sudo apt-get install package Install a package from the repository.
+sudo apt-get purge package Uninstall a package from the repository.
+sudo apt-get update Resynchronize the package index files from their sources.
+sudo apt-get upgrade Install the newest versions of all packages currently installed.
+sudo apt-get dist-upgrade Handle changing dependencies with new versions of packages.
+sudo apt-get autoremove Remove packages that are no longer needed.
+11. Processes (↑)
+ps Display the running processes of the current terminal of the current user.
+ps -e Display all running processes.
+pstree Show running processes as a tree.
+kill Send a signal to a process.
+kill -9 PID Kill a process given their PID.
+top Dynamic real-time viewer of processes.
+htop Interactive process viewer (install it with sudo apt-get install htop).
+12. Users (↑)
+id username Print real and effective user and group IDs.
+who Print information about users who are currently logged in.
+whoami Print the username associated with the current effective user ID.
+13. File permissions and ownership (↑)
+chmod Change file mode bits.
+umask Set file mode creation mask.
+chown Change file owner and group.
+chgrp Change group ownership.
+14. Disk and devices (↑)
+lsblk List block devices.
+df -H Report file system disk space usage.
+du -hs path_folder Report disk space usage of a folder.
+sudo mount device_path destination_path Mount a filesystem.
+sudo umount mounted_device_path Unmount a filesystem.
+sudo mkfs.vfat -I /dev/sdx -n NAME && sync Format disk x to VFAT.
+sudo mkfs.vfat -I /dev/sdxY -n NAME && sync Format partition Y from disk x to VFAT.
+sudo dd bs=512K if=input.iso of=/dev/sdx && sync Burn an ISO file to a disk.
+sudo gdisk /dev/sdx GPT editor for disk x (install it with sudo apt-get install gdisk).
+15. Compression and decompression (↑)
+Execute sudo apt-get install p7zip-full or yum install p7zip to install 7-Zip.
 
-ftp
-ftp (file transfer protocol) is used to transfer files for one system to another system.
-ssh
-ssh (secure shell) is used to log into remote system or server. By default Ubuntu comes with SSH program preinstalled.
-fdisk
-fdisk command is used to manipulate (add, remove, delete, change) partition of your system. NOTE: Don’t use this command unless you are sure about the consequences.
-df
-df is a very handy command which show the storage used/free on your the storage drives connected to your system.
-chmod
-chmod is very useful command for beginners. It is used to change file permission. chmod stands for change mode in Linux.
-chown
-chown is used to change owner of a file or directory (or further more). Beware about using chown or chmod commands
-sudo su
-superuser in Ubuntu Desktop is disabled by default. But if you want to act as a superuser (or root) then use this command. You will be asked for password. sudo su will allow the terminal session to run all commands and activity with superuser privilege.Don’t forget to close the root session by using exit command.
-WARNING: Acting as su or root could be dangerous. Beginners should consider using sudo.
-clear
-Clear Screen: Use clear command to clear the terminal screen.
-exit
-exit from terminal.
+7z x path_zip_file Extract a ZIP file.
+7z x path_iso_file Extract an ISO file.
+7z a filename.zip path_folder Compress a directory in a ZIP file.
+16. Net (↑)
+ssh user@server Log in to a shell of a remote host by SSH.
+ssh user@server -X Log in to a shell of a remote host with X11 forwarding by SSH.
+scp user@host:path_remote_file path_local Copy a file from a remote host to local host.
+scp path_local_file user@host:path_remote Copy a file from a local host to remote host.
+scp -r user@host:path_folder path_local Copy a folder from a remote host to local host.
+scp -r path_folder user@host:path_remote Copy a folder from a local host to remote host.
+wget URL Retrieves a file from the web.
+wavemon Wireless network monitor (install it with sudo apt-get install wavemon).
+ip Sshow and manipulate routing, network devices, interfaces and tunnels.
+17. Find (↑)
+find . Find files and folders recursively in current directory.
+find . -name *.png -exec cp '{}' ~/images \; Copy all PNG files to ~/images folder.
+find . -name *.txt -exec mv '{}' ./txt \; Move all TXT files to ./txt folder.
+find . -name .svn -prune -exec rm -r '{}' \; Delete all .svn folders.
+find . -type f -exec file '{}' \; Run files.
+18. Git (↑)
+Execute sudo apt-get install git or yum install git to install Git.
+
+git clone uri_repository.git Clone a repository into a new directory.
+git pull Incorporates changes from a remote repository into the current branch.
+git status Show the working tree status.
+git add . Update the index using the current content found in the working tree.
+git commit -m 'message' Record changes to the repository.
+git push Update remote references (refs) along with associated objects.
+19. Subversion (SVN) (↑)
+Run sudo apt-get install subversion or yum install subversion to install SVN.
+
+svnadmin create repository_name Create new repository.
+svn co svn+ssh://user@server/path_to_repository Checkout.
+svn update Update working copy.
+svn status Get status of current copy.
+svn add * Add all items recursively.
+svn add item_name Add an item (if folder, adds recursively).
+svn delete item_name Delete an item (if folder, deletes recursively).
+svn commit -m 'message' Commit with log message.
+20. FFmpeg (↑)
+Run sudo apt-get install ffmpeg to install FFmpeg.
+
+ffmpeg -loop 1 -i 01.png -t 5 out.mp4 Convert image to 5 sec. video.
+ffmpeg -f concat -i mylist.txt -c copy out.mp4 Concatenate videos.
+ffmpeg -r 3 -i %02d.png -r 30 out.mp4 15 images to 30 Hz 5 sec. video.
+ffmpeg -i input.webm -s 1280x720 out.webm Resize video to 720p.
+ffmpeg -i in.mp4 -vf 'fade=in:0:25, fade=out:975:25' out.mp4 Fade in and out.
+21. Screen (↑)
+Run sudo apt-get install screen or yum install screen to install Screen.
+
+screen Create a screen session.
+Ctrl + A then D Detach from the current screen session.
+screen -ls List the screen session identification strings.
+screen -r session_id_string Reattach to a screen session.
+exit, or Ctrl + A then :quit Terminate the current screen session.
+Ctrl + A then Esc then ↑/↓/PgUp/PgDn Scroll up/down during session.
+22. PDFtk (↑)
+Run sudo apt-get install pdftk to install PDFtk.
+
+pdftk *.pdf cat output out.pdf Join all PDF files into a new PDF file.
+pdftk in1.pdf in2.pdf in3.pdf cat output out.pdf Join 3 PDF files.
+pdftk in.pdf cat 1 25-35 end output out.pdf Extract pages from a PDF.
+Many of the descriptions of the commands are from their manual pages.
